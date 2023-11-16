@@ -5,7 +5,7 @@ const Medico = require('../models/medico');
 const Hospital = require('../models/hospital');
 
 
-const getBusqueda = async(req, res = response ) => {
+const getTodo = async(req, res = response ) => {
 
     const busqueda = req.params.busqueda;
     const regex = new RegExp( busqueda, 'i' );
@@ -66,7 +66,7 @@ const getDocumentosColeccion = async(req, res = response ) => {
 
 
 module.exports = {
-    getBusqueda,
+    getTodo,
     getDocumentosColeccion
 }
 

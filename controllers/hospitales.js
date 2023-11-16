@@ -24,12 +24,12 @@ const crearHospital = async(req, res = response) => {
 
     try {
         
-        const hospitaldb = await hospital.save();
+        const hospitalDB = await hospital.save();
         
 
         res.json({
             ok: true,
-            hospital: hospitaldb
+            hospital: hospitalDB
         });
 
     } catch (error) {
