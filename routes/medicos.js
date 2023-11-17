@@ -29,7 +29,11 @@ router.post( '/',
 );
 
 router.put( '/:id',
-    [],
+    [
+        check('nombre', 'El nombre del medico es necesario').not().isEmpty(),
+        check('hospital', 'El nombre del hospital es requerido').not().isEmpty(),
+
+    ],
     actualizarMedico
 );
 

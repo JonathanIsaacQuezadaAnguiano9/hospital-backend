@@ -45,17 +45,60 @@ const crearMedico = async (req, res = response) => {
 
 }
 
-const actualizarMedico = (req, res = response) => {
-    res.json({
-        ok: true,
-        msg: 'actualizarMedico'
-    })
+const actualizarMedico = async (req, res = response) => {
+    try {
+        const medico = await Medico.findById(id);
+        if (!medico) {
+            return res.status(404).json({
+                ok: false, 
+                msg: 'Medico no encontrado',
+                id
+            });
+        }
+        medico.nombre = req.body.nombre;
+        medico.hospital = req.body.hospital; 
+        
+        const cambiosMedico= {
+            ...req.body,
+            usuario: uid
+        }
+        res.json({
+            ok:true, 
+            msg: 'Medico actualizado'
+        })
+    } catch (error) {
+        res.status(500).json({
+            ok:false,
+            msg: 'Error al actualizar al medico'
+        })
+    }
 }
 
-const borrarMedico = (req, res = response) => {
+const borrarMedico = async (req, res = response) => {
+    try {
+        const id = req.params.findById(id);
+        if (!medico) {
+            return res.status(404).json({
+                ok:false,
+                msg: 'Medico no encontrado',
+                id
+            });    
+        }
+        await Medico.findByIdAndDelete(id);
+        res.json({
+            ok: true,
+            msg: 'Medico eliminado por mala praxis '
+        });
+        
+    } catch (error) {
+        res.status(500).json({
+            ok:false,
+            msg: 'Error al borra al medico (gano el juicio)'
+        })
+    }
     res.json({
-        ok: true,
-        msg: 'borrarMedico'
+        ok:true, 
+        msg: 'Borrar medico =)'
     })
 }
 
