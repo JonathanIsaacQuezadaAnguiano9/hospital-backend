@@ -62,9 +62,11 @@ const actualizarHospital = async (req, res = response) => {
             usuario: uid
         }
 
+        const hospitalActualizado = await Hospital.findByIdAndUpdate(id, cambiosHospital, {new: true});
+        
         res.json({
             ok:true,
-            msg: 'Hospital actualizado'
+            hospital: hospitalActualizado,
         })
     } catch (error) {
         res.status(500).json({
@@ -78,7 +80,7 @@ const actualizarHospital = async (req, res = response) => {
 const borrarHospital = async (req, res = response) => {
     const id = req.params.id;
     try {
-        const hospital = await Hospital.findById(id )
+        const hospital = await Hospital.findById(id);
         if (!hospital) {
             return res.status(404).json({
                 ok:false, 

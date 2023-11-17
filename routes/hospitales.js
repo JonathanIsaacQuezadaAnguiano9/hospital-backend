@@ -32,6 +32,7 @@ router.post( '/',
 router.put( '/:id',
     [
         check('nombre', 'El nombre del hospital es necesario').not().isEmpty(),
+        check('usuario', 'El id del usuario es requerido').isMongoId(),
     ],
     actualizarHospital
 );
