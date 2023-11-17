@@ -41,8 +41,6 @@ const crearMedico = async (req, res = response) => {
             msg: 'Hable con el administrador'
         })
     }
-
-
 }
 
 const actualizarMedico = async (req, res = response) => {
