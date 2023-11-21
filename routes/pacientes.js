@@ -15,8 +15,6 @@ router.get('/', getPacientes);
 
 router.post('/',
     [
-        check('nombre', 'EL nombre del paciente es necesario').not().isEmpty(),
-        check('usuario', 'EL usuario id debe de ser valido').isMongoId(),
         validarCampos,
     ],
     crearPaciente

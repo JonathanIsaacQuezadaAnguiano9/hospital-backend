@@ -1,9 +1,9 @@
 const {Schema, model} = require ('mongoose');
 
-const PasienteSchema = Schema ({
+const PacienteSchema = Schema ({
     nombre:{
         type: String,
-        required: true
+        required: false
     },
     img: {
         type: String,
@@ -11,12 +11,12 @@ const PasienteSchema = Schema ({
 
     padecimiento:{
         type: String,
-        required: true,
+        required: false,
     },
 
     fechaIngreso:{
-        type: Date,
-        required: true,
+        type: String,
+        required: false,
     },
 
     fechaAlta:{
@@ -27,12 +27,14 @@ const PasienteSchema = Schema ({
     usuario:{
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
-        required: true,
+        required: false,
     },
     hospital:{
         type: Schema.Types.ObjectId,
         ref: 'Hospital',
-        required: true
+        required: false
     },
 
 });
+
+module.exports = model('Paciente', PacienteSchema);

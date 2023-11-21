@@ -4,11 +4,11 @@ const Paciente = require('../models/paciente');
 
 const getPacientes = async (req, res= response) => {
     
-    const pacientes = await Medico.find()
+    const pacientes = await Paciente.find()
                                 .populate('hospital', 'nombre img')
                                 .populate('usuario', 'nombre img')
                                 .populate('medico', 'nombre img')
-        response.json({
+        res.json({
             ok: true,
             pacientes
         })
@@ -16,11 +16,10 @@ const getPacientes = async (req, res= response) => {
 }
 
 const crearPaciente = async ( req, res = response) =>{
+
     const uid = req.uid;
-    const paciente = new Paciente({
-        paciente: uid,
-        ...req.body
-    });
+    const paciente = new Paciente(req.body);
+
     try {
 
         const pacienteDB = await paciente.save();
