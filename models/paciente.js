@@ -1,40 +1,35 @@
-const {Schema, model} = require ('mongoose');
+const { Schema, model } = require('mongoose');
 
-const PacienteSchema = Schema ({
-    nombre:{
+const PacienteSchema = Schema({
+    nombre: {
         type: String,
-        required: false
+        required: false,
     },
     img: {
         type: String,
     },
-
-    padecimiento:{
+    padecimiento: {
         type: String,
-        required: false,
+        required: true,
     },
-
-    fechaIngreso:{
+    fechaIngreso: {
         type: String,
-        required: false,
+        required: true,
     },
-
-    fechaAlta:{
+    fechaAlta: {
         type: Date,
-        required: false
-    },
-    
-    medico:{
-        type: Schema.Types.ObjectId,
-        ref: 'Usuario',
         required: false,
     },
-    hospital:{
+    medico: {
+        type: Schema.Types.ObjectId,
+        ref: 'Medico',
+        required: false,
+    },
+    hospital: {
         type: Schema.Types.ObjectId,
         ref: 'Hospital',
-        required: false
+        required: false,
     },
-
 });
 
 module.exports = model('Paciente', PacienteSchema);

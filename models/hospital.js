@@ -8,19 +8,27 @@ const HospitalSchema = Schema({
     img: {
         type: String,
     },
-    usuario: {
-        required: true,
-        type: Schema.Types.ObjectId,
-        ref: 'Usuario'
-    }
-}, {  collection: 'hospitales' });
+
+    direccion: {
+        type: String,
+        required: true
+    },
+
+    // usuario: {
+    //     required: true,
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Usuario'
+    // }
+},
+
+{ collection: 'hospitales' });
 
 
-HospitalSchema.method('toJSON', function() {
+HospitalSchema.method('toJSON', function () {
     const { __v, ...object } = this.toObject();
     return object;
 })
 
 
 
-module.exports = model( 'Hospital', HospitalSchema );
+module.exports = model('Hospital', HospitalSchema);

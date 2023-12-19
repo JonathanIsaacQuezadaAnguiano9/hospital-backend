@@ -22,7 +22,7 @@ router.post('/',
 
 router.put('/:id', 
     [
-        check('hospital', 'El id del hospital es requerido').isMongoId(),
+        //check('hospital', 'El id del hospital es requerido').isMongoId(),
         validarCampos
     ],
     actualizarPaciente

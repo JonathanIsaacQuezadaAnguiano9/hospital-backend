@@ -22,7 +22,6 @@ router.get( '/', getMedicos );
 router.post( '/',
     [
         check('nombre','El nombre del médico es necesario').not().isEmpty(),
-        check('hospital','El hospital id debe de ser válido').isMongoId(),
         validarCampos
     ], 
     crearMedico 
@@ -31,7 +30,7 @@ router.post( '/',
 router.put( '/:id',
     [
         check('nombre', 'El nombre del medico es necesario').not().isEmpty(),
-        check('hospital', 'El id del hospital es requerido').isMongoId(),
+        //check('hospital', 'El id del hospital es requerido').isMongoId(),
         validarCampos
     ],
     actualizarMedico
@@ -44,6 +43,3 @@ router.delete( '/:id',
 
 
 module.exports = router;
-
-
-

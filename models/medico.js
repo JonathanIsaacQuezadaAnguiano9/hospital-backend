@@ -8,10 +8,14 @@ const MedicoSchema = Schema({
     img: {
         type: String,
     },
-    usuario: {
-        type: Schema.Types.ObjectId,
-        ref: 'Usuario',
-        required: true
+    // usuario: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Usuario',
+    //     required: true
+    // },
+    especialidad:{
+        type: String,
+        required: true,
     },
     hospital: {
         type: Schema.Types.ObjectId,

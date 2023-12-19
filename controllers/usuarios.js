@@ -163,8 +163,6 @@ const borrarUsuario = async(req, res = response ) => {
 
 }
 
-
-
 module.exports = {
     getUsuarios,
     crearUsuario,
