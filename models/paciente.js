@@ -24,7 +24,7 @@ const PacienteSchema = Schema ({
         required: false
     },
     
-    usuario:{
+    medico:{
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: false,

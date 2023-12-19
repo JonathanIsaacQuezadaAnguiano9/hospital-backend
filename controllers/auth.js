@@ -45,7 +45,7 @@ const login = async( req, res = response ) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el administrador'
+            msg: 'hubo un error con google'
         })
     }
 
